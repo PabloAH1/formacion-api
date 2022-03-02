@@ -3,6 +3,7 @@ package com.formacion.app.service;
 import java.util.List;
 
 import com.formacion.app.entity.Cliente;
+import com.formacion.app.entity.Region;
 
 public interface ClienteService {
 
@@ -13,4 +14,6 @@ public interface ClienteService {
 	public Cliente save(Cliente cliente);
 		
 	public void delete(Long id);
+	
+	public List<Region> findAllRegiones();
 }

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.formacion.app.dao.ClienteDao;
 import com.formacion.app.entity.Cliente;
+import com.formacion.app.entity.Region;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -34,13 +35,18 @@ public class ClienteServiceImpl implements ClienteService {
 		return clienteDao.save(cliente);
 	}
 
-
-
 	@Override
 	@Transactional
 	public void delete(Long id) {
 		clienteDao.deleteById(id);
-			}
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Region> findAllRegiones() {
+		// TODO Auto-generated method stub
+		return clienteDao.findAllRegions();
+	}
 	
 	
 	

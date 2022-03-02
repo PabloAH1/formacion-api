@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.formacion.app.entity.Cliente;
+import com.formacion.app.entity.Region;
 import com.formacion.app.service.ClienteService;
 
 @RestController
@@ -242,6 +243,11 @@ public class ClienteRestController {
 		HttpHeaders cabecera = new HttpHeaders();
 		cabecera.add(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename\""+recurso.getFilename()+"\"");
 		return new ResponseEntity<Resource>(recurso,cabecera,HttpStatus.OK);
+	}
+	
+	@GetMapping("/clientes/regiones")
+	public List<Region> listarRegiones(){
+		return servicio.findAllRegiones();
 	}
 	
 }
