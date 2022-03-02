@@ -20,21 +20,27 @@ public class Cliente {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false)
 	private String nombre;
+	
 	private String apellido;
+	
+	@Column(nullable = false, unique=true)
 	private String email;
+	
 	private int telefono;
 	
 	@Column(name="create_at")
 	@Temporal(TemporalType.DATE)
 	private Date createdAt;
 	
+	private String imagen;
+	
 	@PrePersist
 	public void prePersist() {
 		if(createdAt==null) {
 			createdAt=new Date();
-		}
-		
+		}		
 	}
 	
 	public Long getId() {
@@ -75,6 +81,14 @@ public class Cliente {
 	}
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 	
 	
